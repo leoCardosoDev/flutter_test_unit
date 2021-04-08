@@ -37,7 +37,7 @@ class OnboardControls extends StatelessWidget {
           _Dots(),
           Consumer<OnboardController>(
             builder: (_, controller, __) {
-              final double page = controller.currentPage!;
+              final double page = controller.currentPage;
               bool isEnd = page % 1 == 0 && page == 2.0;
               return CupertinoButton(
                 child: Text(
@@ -68,7 +68,7 @@ class _Dots extends StatelessWidget {
     final controller = context.watch<OnboardController>();
     return DotsIndicator(
       dotsCount: controller.items.length,
-      position: controller.currentPage!,
+      position: controller.currentPage,
       decorator: DotsDecorator(
         size: const Size.square(9.0),
         activeSize: const Size(18.0, 9.0),

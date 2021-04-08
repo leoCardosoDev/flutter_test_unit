@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_ux/src/data/models/dish.dart';
@@ -58,8 +58,8 @@ class MyCartItem extends StatelessWidget {
                   topLeft: Radius.circular(10),
                   bottomLeft: Radius.circular(10),
                 ),
-                child: CachedNetworkImage(
-                  imageUrl: dish.photo!,
+                child: Image.network(
+                  dish.photo,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -72,7 +72,7 @@ class MyCartItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    dish.name!,
+                    dish.name,
                     style: FontStyles.regular,
                   ),
                   SizedBox(height: 5),

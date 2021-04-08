@@ -15,6 +15,7 @@ class DishController extends ChangeNotifier {
   final String tag;
   Dish dish;
   VoidCallback? onDispose;
+
   DishController(DishPageArguments arguments, this._isFavorite)
       : this.dish = arguments.dish,
         this.tag = arguments.tag;

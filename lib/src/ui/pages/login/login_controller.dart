@@ -1,11 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:ui_ux/src/data/models/user.dart';
+import 'package:ui_ux/src/data/repositories/account_repository.dart';
 import 'package:ui_ux/src/data/repositories/authentication_repository.dart';
 import 'package:ui_ux/src/helpers/get.dart';
 
 class LoginController extends ChangeNotifier {
   String _email = '', _password = '';
-  final AuthenticationRepository? _repository = Get.i.find<AuthenticationRepository>();
+  final _authenticationRepository = Get.i.find<AuthenticationRepository>();
+  final _accountRepository = Get.i.find<AccountRepository>();
 
   void onEmailChanged(String text) {
     _email = text;
@@ -16,6 +18,11 @@ class LoginController extends ChangeNotifier {
   }
 
   Future<User?> submit() async {
-    return _repository!.login(_email, _password);
+    final String? token = await _authenticationRepository.login(_email, _password);
+    if (token != null) {
+      await _authenticationRepository.saveToken(token);
+      return _accountRepository.userInformation;
+    }
+    return null;
   }
 }

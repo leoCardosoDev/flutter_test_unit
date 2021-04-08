@@ -20,7 +20,7 @@ class DishPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<DishController>(
       create: (_) {
-        final homeController = Get.i.find<HomeController>()!;
+        final homeController = Get.i.find<HomeController>();
         final DishPageArguments args = ModalRoute.of(context)!.settings.arguments as DishPageArguments;
         final isFavorite = homeController.isFavorite(args.dish);
         final controller = DishController(args, isFavorite);
@@ -30,7 +30,10 @@ class DishPage extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor: Colors.white,
-        floatingActionButton: AddToCartButton(),
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: AddToCartButton(),
+        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: Container(
           width: double.infinity,

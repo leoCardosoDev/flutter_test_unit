@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,8 +19,8 @@ class DishHeader extends StatelessWidget {
             child: Stack(
               children: [
                 Positioned.fill(
-                  child: CachedNetworkImage(
-                    imageUrl: controller.dish.photo!,
+                  child: Image.network(
+                    controller.dish.photo,
                     fit: BoxFit.cover,
                   ),
                 ),

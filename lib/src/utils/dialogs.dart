@@ -27,6 +27,40 @@ abstract class Dialogs {
       ),
     );
   }
+
+  static Future<bool> confirm(
+    BuildContext context, {
+    String? title,
+    String? description,
+    String okText = "OK",
+  }) async {
+    final result = await showCupertinoModalPopup<bool>(
+      context: context,
+      builder: (_) => WillPopScope(
+        child: CupertinoActionSheet(
+          title: title != null ? Text(title) : null,
+          message: description != null ? Text(description) : null,
+          actions: [
+            CupertinoActionSheetAction(
+              child: Text(okText),
+              onPressed: () {
+                Navigator.pop(_, true);
+              },
+            ),
+            CupertinoActionSheetAction(
+              child: Text("CANCEL"),
+              onPressed: () {
+                Navigator.pop(_, false);
+              },
+              isDestructiveAction: true,
+            )
+          ],
+        ),
+        onWillPop: () async => false,
+      ),
+    );
+    return result ?? false;
+  }
 }
 
 abstract class ProgressDialog {

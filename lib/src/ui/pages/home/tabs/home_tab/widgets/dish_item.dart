@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
@@ -46,8 +46,8 @@ class DishHomeItem extends StatelessWidget {
               Hero(
                 tag: this.tag,
                 child: ClipRRect(
-                  child: CachedNetworkImage(
-                    imageUrl: item.photo!,
+                  child: Image.network(
+                    item.photo,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -84,7 +84,7 @@ class DishHomeItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        item.name!,
+                        item.name,
                         style: FontStyles.regular.copyWith(
                           fontSize: 20,
                           color: Colors.black,
@@ -112,28 +112,29 @@ class DishHomeItem extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Container(
-                            padding: EdgeInsets.symmetric(horizontal: 7).copyWith(left: 4),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.white,
-                                  size: 15,
-                                ),
-                                Text(
-                                  "${item.rate}",
-                                  style: FontStyles.normal.copyWith(
+                          if (item.rate != null)
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 7).copyWith(left: 4),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.star,
                                     color: Colors.white,
+                                    size: 15,
                                   ),
-                                ),
-                              ],
-                            ),
-                            decoration: BoxDecoration(
-                              color: primaryColor,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          )
+                                  Text(
+                                    "${item.rate}",
+                                    style: FontStyles.normal.copyWith(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              decoration: BoxDecoration(
+                                color: primaryColor,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            )
                         ],
                       )
                     ],

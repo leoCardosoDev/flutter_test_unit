@@ -8,7 +8,7 @@ class FoodMenuProvider {
     final jsonAsString = await rootBundle.loadString('assets/pages/home/home_tab/json/popular_menu.json');
     final List list = jsonDecode(jsonAsString);
     List<Dish> dishes = [];
-    for (final Map<String, dynamic> item in list as Iterable<Map<String, dynamic>>) {
+    for (final Map<String, dynamic> item in list) {
       final dish = Dish(
         id: item['id'],
         name: item['name'],
@@ -16,9 +16,11 @@ class FoodMenuProvider {
         price: double.parse(
           item['price'].toString(),
         ),
-        rate: double.parse(
-          item['rate'].toString(),
-        ),
+        rate: item['rate'] != null
+            ? double.parse(
+                item['rate'].toString(),
+              )
+            : null,
         description: item['description'],
       );
 

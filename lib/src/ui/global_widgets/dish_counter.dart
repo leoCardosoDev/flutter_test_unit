@@ -13,7 +13,8 @@ class DishCounter extends StatefulWidget {
     required this.onChanged,
     this.size = DishCounterSize.normal,
     this.initialValue = 0,
-  }) : super(key: key);
+  })  : assert(initialValue >= 0),
+        super(key: key);
 
   @override
   _DishCounterState createState() => _DishCounterState();

@@ -8,4 +8,5 @@ abstract class Routes {
   static const DISH = '/dish';
   static const CHECK_OUT = '/check-out';
   static const MY_CART = '/my-cart';
+  static const SPLASH = '/splash';
 }

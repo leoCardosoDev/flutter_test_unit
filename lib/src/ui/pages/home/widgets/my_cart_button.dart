@@ -16,7 +16,7 @@ class FloatingMyCartButton extends StatelessWidget {
 
     if (!hasItems) return Container();
 
-    final cart = context.select<MyCartController, Map<int?, Dish>>((_) => _.cart);
+    final cart = context.select<MyCartController, Map<int, Dish>>((_) => _.cart);
     return Stack(
       children: [
         FloatingActionButton(

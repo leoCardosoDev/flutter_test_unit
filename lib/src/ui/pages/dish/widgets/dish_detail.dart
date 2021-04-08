@@ -16,7 +16,7 @@ class DishDetail extends StatelessWidget {
   }) : super(key: key);
 
   void _toggleFavorite(BuildContext context) {
-    final homeController = Get.i.find<HomeController>()!;
+    final homeController = Get.i.find<HomeController>();
     final controller = context.read<DishController>();
     if (!controller.isFavorite) {
       final SnackBar snackBar = SnackBar(
@@ -50,7 +50,7 @@ class DishDetail extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      dish.name!,
+                      dish.name,
                       style: FontStyles.title,
                     ),
                     Text(
@@ -82,7 +82,7 @@ class DishDetail extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Text(
-            dish.description!,
+            dish.description,
             textAlign: TextAlign.center,
           ),
         ],

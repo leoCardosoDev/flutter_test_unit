@@ -1,13 +1,37 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_ux/src/data/models/user.dart';
+import 'package:ui_ux/src/data/repositories/authentication_repository.dart';
+import 'package:ui_ux/src/data/repositories/preferences_repository.dart';
+import 'package:ui_ux/src/data/repositories/websocket_repository.dart';
+import 'package:ui_ux/src/helpers/get.dart';
+import 'package:ui_ux/src/routes/routes.dart';
+import 'package:ui_ux/src/ui/global_controllers/notifications_controller.dart';
+import 'package:ui_ux/src/utils/dialogs.dart';
 import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:provider/provider.dart';
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({Key? key}) : super(key: key);
 
+  void _signOut(BuildContext context) async {
+    final isOk = await Dialogs.confirm(context, title: "ACTION REQUIRED");
+    if (isOk) {
+      Get.i.remove<User>();
+      await Get.i.find<AuthenticationRepository>().signOut();
+      await Get.i
+          .find<PreferencesRepository>()
+          .setOnboardAndWelcomeReady(false);
+      await Get.i.find<WebsocketRepository>().disconnect();
+      context.read<NotificationsController>().clear();
+      Navigator.pushNamedAndRemoveUntil(context, Routes.LOGIN, (_) => false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final user = Get.i.find<User>();
     return Container(
       color: CupertinoColors.systemGroupedBackground,
       child: ListView(
@@ -15,12 +39,11 @@ class ProfileTab extends StatelessWidget {
           SizedBox(height: 20),
           Align(
             child: ClipOval(
-              child: CachedNetworkImage(
+              child: Image.network(
+                "https://www.nj.com/resizer/h8MrN0-Nw5dB5FOmMVGMmfVKFJo=/450x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg",
                 width: 200,
                 height: 200,
                 fit: BoxFit.cover,
-                imageUrl:
-                    "https://www.nj.com/resizer/h8MrN0-Nw5dB5FOmMVGMmfVKFJo=/450x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg",
               ),
             ),
           ),
@@ -40,7 +63,7 @@ class ProfileTab extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                child: Text("1245"),
+                child: Text(user.id),
               ),
               CupertinoFormRow(
                 prefix: Text(
@@ -50,7 +73,7 @@ class ProfileTab extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                child: Text("Darwin Morocho"),
+                child: Text("${user.name} ${user.lastname}"),
               ),
               CupertinoTextFormFieldRow(
                 prefix: Text(
@@ -60,7 +83,7 @@ class ProfileTab extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                initialValue: "test@test.com",
+                initialValue: user.email,
                 textAlign: TextAlign.right,
                 style: FontStyles.normal.copyWith(
                   color: Colors.black,
@@ -74,7 +97,9 @@ class ProfileTab extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                child: Text("18 / 12 / 1995"),
+                child: Text(
+                  user.birthday.toString(),
+                ),
               )
             ],
           ),
@@ -128,7 +153,7 @@ class ProfileTab extends StatelessWidget {
                   style: TextStyle(color: Colors.black),
                 ),
                 child: CupertinoButton(
-                  onPressed: () {},
+                  onPressed: () => _signOut(context),
                   minSize: 20,
                   padding: EdgeInsets.symmetric(vertical: 8),
                   child: Text(

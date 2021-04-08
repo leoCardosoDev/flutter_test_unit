@@ -4,5 +4,5 @@ class Category {
   Category({
     required this.iconPath,
     required this.label,
-  });
+  }) : assert(iconPath.contains(".svg"));
 }

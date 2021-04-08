@@ -17,7 +17,7 @@ class Get {
     _data[key] = dependency;
   }
 
-  T? find<T>({String? tag}) {
+  T find<T>({String? tag}) {
     final String key = _getKey(T, tag);
 
     if (!_data.containsKey(key)) {

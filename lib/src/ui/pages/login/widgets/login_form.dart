@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_ux/src/data/models/user.dart';
+import 'package:ui_ux/src/helpers/get.dart';
 import 'package:ui_ux/src/routes/routes.dart';
 import 'package:ui_ux/src/ui/global_widgets/input_text.dart';
 import 'package:ui_ux/src/ui/global_widgets/rounded_button.dart';
@@ -30,6 +31,7 @@ class LoginForm extends StatelessWidget {
       );
     } else {
       // go to home
+      Get.i.put<User>(user);
       Navigator.pushNamedAndRemoveUntil(
         context,
         Routes.HOME,

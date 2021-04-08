@@ -1,16 +1,11 @@
 import 'package:ui_ux/src/data/models/user.dart';
 
 class AuthenticationProvider {
-  Future<User?> login(String email, String password) async {
-    await Future.delayed(Duration(seconds: 3));
+  Future<String?> login(String email, String password) async {
+    // await Future.delayed(Duration(seconds: 3));
     if (email == "test@test.com" && password == "test") {
-      return User(
-        id: "1234567897",
-        email: "test@test.com",
-        name: "Test",
-        lastname: "Meedu",
-        birthday: DateTime(1993, 12, 1),
-      );
+      final String token = DateTime.now().millisecondsSinceEpoch.toString();
+      return token;
     }
     return null;
   }

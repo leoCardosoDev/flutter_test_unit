@@ -8,10 +8,11 @@ import 'package:ui_ux/src/ui/pages/login/login_page.dart';
 import 'package:ui_ux/src/ui/pages/my_cart/my_cart_page.dart';
 import 'package:ui_ux/src/ui/pages/onboard/onboard_page.dart';
 import 'package:ui_ux/src/ui/pages/register/register_page.dart';
+import 'package:ui_ux/src/ui/pages/splash/splash_page.dart';
 import 'package:ui_ux/src/ui/pages/welcome/welcome_page.dart';
 
 abstract class Pages {
-  static const String INITIAL = Routes.ONBOARD;
+  static const String INITIAL = Routes.SPLASH;
 
   static final Map<String, Widget Function(BuildContext)> routes = {
     Routes.ONBOARD: (_) => OnboardPage(),
@@ -22,5 +23,6 @@ abstract class Pages {
     Routes.HOME: (_) => HomePage(),
     Routes.DISH: (_) => DishPage(),
     Routes.MY_CART: (_) => MyCartPage(),
+    Routes.SPLASH: (_) => SplashPage(),
   };
 }

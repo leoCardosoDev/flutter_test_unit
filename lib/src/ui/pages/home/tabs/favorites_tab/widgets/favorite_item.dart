@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_ux/src/data/models/dish.dart';
 import 'package:ui_ux/src/helpers/get.dart';
@@ -12,7 +12,7 @@ class FavoriteItem extends StatelessWidget {
   const FavoriteItem({Key? key, required this.dish}) : super(key: key);
 
   void _deleteItem() {
-    final homeController = Get.i.find<HomeController>()!;
+    final homeController = Get.i.find<HomeController>();
     homeController.deleteFavorite(dish);
   }
 
@@ -51,8 +51,8 @@ class FavoriteItem extends StatelessWidget {
                   topLeft: Radius.circular(10),
                   bottomLeft: Radius.circular(10),
                 ),
-                child: CachedNetworkImage(
-                  imageUrl: dish.photo!,
+                child: Image.network(
+                  dish.photo,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -65,7 +65,7 @@ class FavoriteItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    dish.name!,
+                    dish.name,
                     style: FontStyles.regular,
                   ),
                   SizedBox(height: 5),

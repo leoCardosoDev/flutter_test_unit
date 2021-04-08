@@ -1,7 +1,8 @@
 class Dish {
-  final int? id;
-  final String? name, photo, description;
-  final double price, rate;
+  final int id;
+  final String name, photo, description;
+  final double price;
+  final double? rate;
   final int counter;
 
   Dish({

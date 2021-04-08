@@ -4,18 +4,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ui_ux/src/utils/colors.dart';
 
 class CircleButton extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final String iconPath;
   final double size;
   final Color backgroundColor, iconColor;
-  const CircleButton({
+
+  CircleButton({
     Key? key,
     required this.onPressed,
     required this.iconPath,
     this.size = 40,
     this.backgroundColor = primaryColor,
     this.iconColor = Colors.white,
-  }) : super(key: key);
+  })  : assert(size > 0),
+        assert(iconPath.contains(".svg")),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

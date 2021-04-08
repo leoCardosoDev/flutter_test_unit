@@ -9,7 +9,8 @@ class HomeTabBarIndicator extends Decoration {
   HomeTabBarIndicator({
     this.color = primaryColor,
     this.size = 5,
-  });
+  }) : assert(size > 0);
+
   @override
   BoxPainter createBoxPainter([void Function()? onChanged]) {
     return _CustomPainter(this.color, this.size);

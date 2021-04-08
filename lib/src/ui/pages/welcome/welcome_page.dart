@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ui_ux/src/data/repositories/preferences_repository.dart';
+import 'package:ui_ux/src/helpers/get.dart';
 import 'package:ui_ux/src/routes/routes.dart';
 import 'package:ui_ux/src/ui/global_widgets/circle_button.dart';
 import 'package:ui_ux/src/ui/global_widgets/rounded_button.dart';
@@ -8,6 +10,10 @@ import 'package:ui_ux/src/utils/font_styles.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
+
+  Future<void> _setReady() {
+    return Get.i.find<PreferencesRepository>().setOnboardAndWelcomeReady(true);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +52,8 @@ class WelcomePage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: RoundedButton(
-                        onPressed: () {
+                        onPressed: () async {
+                          await _setReady();
                           Navigator.pushReplacementNamed(context, Routes.LOGIN);
                         },
                         label: "Login",
@@ -55,7 +62,8 @@ class WelcomePage extends StatelessWidget {
                     SizedBox(width: 20),
                     Expanded(
                       child: RoundedButton(
-                        onPressed: () {
+                        onPressed: () async {
+                          await _setReady();
                           Navigator.pushNamed(context, Routes.REGISTER);
                         },
                         label: "Sign Up",
