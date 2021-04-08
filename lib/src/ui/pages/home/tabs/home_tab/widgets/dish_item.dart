@@ -6,8 +6,7 @@ import 'package:ui_ux/src/data/models/dish.dart';
 import 'package:ui_ux/src/routes/routes.dart';
 import 'package:ui_ux/src/ui/global_controllers/my_cart_controller.dart';
 import 'package:ui_ux/src/ui/pages/dish/dish_controller.dart';
-import 'package:ui_ux/src/utils/colors.dart';
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 class DishHomeItem extends StatelessWidget {
   const DishHomeItem({
@@ -23,7 +22,8 @@ class DishHomeItem extends StatelessWidget {
   String get tag => "${this.key.toString()}-${item.id}";
 
   void _goToDetail(BuildContext context) {
-    final int counter = context.read<MyCartController>().getDishCounter(this.item);
+    final int counter =
+        context.read<MyCartController>().getDishCounter(this.item);
     final Dish dish = item.updateCounter(counter);
 
     Navigator.pushNamed(
@@ -38,7 +38,8 @@ class DishHomeItem extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 16 / 9,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10).copyWith(left: isFirst ? 15 : 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10)
+            .copyWith(left: isFirst ? 15 : 10),
         child: CupertinoButton(
           padding: EdgeInsets.zero,
           child: Stack(
@@ -114,7 +115,8 @@ class DishHomeItem extends StatelessWidget {
                           ),
                           if (item.rate != null)
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 7).copyWith(left: 4),
+                              padding: EdgeInsets.symmetric(horizontal: 7)
+                                  .copyWith(left: 4),
                               child: Row(
                                 children: [
                                   Icon(

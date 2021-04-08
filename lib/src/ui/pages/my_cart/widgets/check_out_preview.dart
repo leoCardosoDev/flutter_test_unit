@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_ux/src/ui/global_controllers/my_cart_controller.dart';
-import 'package:ui_ux/src/utils/colors.dart';
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 class CheckOutPreview extends StatelessWidget {
   const CheckOutPreview({Key? key}) : super(key: key);
@@ -21,7 +20,8 @@ class CheckOutPreview extends StatelessWidget {
           topRight: Radius.circular(35),
         ),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15).copyWith(top: 30),
+      padding:
+          EdgeInsets.symmetric(horizontal: 30, vertical: 15).copyWith(top: 30),
       child: SafeArea(
         top: false,
         child: Column(

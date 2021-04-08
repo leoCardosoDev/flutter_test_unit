@@ -6,8 +6,7 @@ import 'package:ui_ux/src/helpers/get.dart';
 import 'package:ui_ux/src/routes/routes.dart';
 import 'package:ui_ux/src/ui/global_widgets/input_text.dart';
 import 'package:ui_ux/src/ui/global_widgets/rounded_button.dart';
-import 'package:ui_ux/src/utils/dialogs.dart';
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 import '../login_controller.dart';
 

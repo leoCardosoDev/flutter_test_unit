@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 import 'forgot_password_controller.dart';
 import 'widgets/forgot_password_form.dart';
@@ -32,7 +32,10 @@ class ForgotPasswordPage extends StatelessWidget {
                 onTap: () => FocusScope.of(context).unfocus(),
                 child: Container(
                   width: double.infinity,
-                  height: size.height - padding.top - padding.bottom - appBar.preferredSize.height,
+                  height: size.height -
+                      padding.top -
+                      padding.bottom -
+                      appBar.preferredSize.height,
                   color: Colors.transparent,
                   child: Column(
                     children: [
@@ -44,7 +47,8 @@ class ForgotPasswordPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 30),
                         child: Text(
                           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
                           style: FontStyles.normal.copyWith(

@@ -5,8 +5,7 @@ import 'package:ui_ux/src/helpers/dependency_injection.dart';
 import 'package:ui_ux/src/routes/pages.dart';
 import 'package:ui_ux/src/ui/global_controllers/my_cart_controller.dart';
 import 'package:ui_ux/src/ui/global_controllers/notifications_controller.dart';
-import 'package:ui_ux/src/utils/colors.dart';
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
@@ -25,8 +24,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<MyCartController>(create: (_) => MyCartController()),
-        ChangeNotifierProvider<NotificationsController>(create: (_) => NotificationsController()),
+        ChangeNotifierProvider<MyCartController>(
+            create: (_) => MyCartController()),
+        ChangeNotifierProvider<NotificationsController>(
+            create: (_) => NotificationsController()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

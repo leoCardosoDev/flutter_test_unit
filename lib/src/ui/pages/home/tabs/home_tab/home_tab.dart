@@ -5,7 +5,7 @@ import 'package:ui_ux/src/data/models/dish.dart';
 import 'package:ui_ux/src/ui/pages/home/tabs/home_tab/home_tab_controller.dart';
 import 'package:ui_ux/src/ui/pages/home/tabs/home_tab/widgets/categories_menu.dart';
 import 'package:ui_ux/src/ui/pages/home/tabs/home_tab/widgets/horizontal_dishes.dart';
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 import 'widgets/search_button.dart';
 
@@ -59,7 +59,8 @@ class _HomeTabState extends State<HomeTab> with AutomaticKeepAliveClientMixin {
               SizedBox(height: 20),
               Builder(
                 builder: (context) {
-                  final List<Dish> popularMenu = context.select<HomeTabController, List<Dish>>(
+                  final List<Dish> popularMenu =
+                      context.select<HomeTabController, List<Dish>>(
                     (_) => _.popularMenu,
                   );
                   return HorizontalDishes(
@@ -72,7 +73,8 @@ class _HomeTabState extends State<HomeTab> with AutomaticKeepAliveClientMixin {
               SizedBox(height: 20),
               Builder(
                 builder: (context) {
-                  final List<Dish> popularMenu = context.select<HomeTabController, List<Dish>>(
+                  final List<Dish> popularMenu =
+                      context.select<HomeTabController, List<Dish>>(
                     (_) => _.popularMenu,
                   );
                   return HorizontalDishes(

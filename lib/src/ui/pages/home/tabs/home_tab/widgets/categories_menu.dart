@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_ux/src/data/models/category.dart';
 import 'package:ui_ux/src/ui/pages/home/tabs/home_tab/home_tab_controller.dart';
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 class CategoriesMenu extends StatelessWidget {
   const CategoriesMenu({Key? key}) : super(key: key);

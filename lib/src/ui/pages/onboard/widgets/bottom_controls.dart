@@ -2,9 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_ux/src/routes/routes.dart';
-import 'package:ui_ux/src/utils/colors.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 import '../onboard_controller.dart';
 

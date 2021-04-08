@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_ux/src/data/models/notification.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 class NotificationItem extends StatelessWidget {
   final AppNotification notification;
-  const NotificationItem({Key? key, required this.notification}) : super(key: key);
+  const NotificationItem({Key? key, required this.notification})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

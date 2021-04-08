@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ui_ux/src/utils/colors.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 class CircleButton extends StatelessWidget {
   final VoidCallback? onPressed;

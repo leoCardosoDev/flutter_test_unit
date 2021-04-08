@@ -4,8 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:ui_ux/src/data/models/dish.dart';
 import 'package:ui_ux/src/ui/global_widgets/dish_counter.dart';
 import 'package:ui_ux/src/ui/global_controllers/my_cart_controller.dart';
-import 'package:ui_ux/src/utils/colors.dart';
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class MyCartItem extends StatelessWidget {
@@ -88,7 +87,8 @@ class MyCartItem extends StatelessWidget {
                       DishCounter(
                         size: DishCounterSize.mini,
                         initialValue: dish.counter,
-                        onChanged: (counter) => _onCounterChanged(context, counter),
+                        onChanged: (counter) =>
+                            _onCounterChanged(context, counter),
                       ),
                     ],
                   ),

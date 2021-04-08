@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_ux/src/ui/pages/home/home_controller.dart';
 import 'package:ui_ux/src/ui/pages/home/widgets/home_indicator.dart';
-import 'package:ui_ux/src/utils/colors.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 import 'package:badges/badges.dart';
 
 class HomeBottomBar extends StatelessWidget {
@@ -13,8 +13,10 @@ class HomeBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<HomeController>(context, listen: false);
-    final int currentPage = context.select<HomeController, int>((_) => _.currentPage);
-    final menuItems = context.select<HomeController, List<BottomBarItem>>((_) => _.menuItems);
+    final int currentPage =
+        context.select<HomeController, int>((_) => _.currentPage);
+    final menuItems =
+        context.select<HomeController, List<BottomBarItem>>((_) => _.menuItems);
     return Container(
       child: SafeArea(
         top: false,

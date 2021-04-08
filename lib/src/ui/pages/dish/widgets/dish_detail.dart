@@ -4,8 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_ux/src/helpers/get.dart';
 import 'package:ui_ux/src/ui/pages/home/home_controller.dart';
-import 'package:ui_ux/src/utils/colors.dart';
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 import '../dish_controller.dart';
 import '../../../global_widgets/dish_counter.dart';

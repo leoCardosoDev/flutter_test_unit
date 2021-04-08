@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_ux/src/routes/routes.dart';
 import 'package:ui_ux/src/ui/global_widgets/circle_button.dart';
-import 'package:ui_ux/src/utils/font_styles.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 class SocialLogin extends StatelessWidget {
   const SocialLogin({

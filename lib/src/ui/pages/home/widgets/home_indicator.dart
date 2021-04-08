@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:ui_ux/src/utils/colors.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 class HomeTabBarIndicator extends Decoration {
   final Color color;

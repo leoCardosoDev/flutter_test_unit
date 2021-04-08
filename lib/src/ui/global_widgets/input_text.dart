@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'custom_form.dart';
-import 'package:ui_ux/src/utils/colors.dart';
+import 'package:ui_ux/src/utils/utils.dart';
 
 class InputText extends StatefulWidget {
   final Widget? prefixIcon;
@@ -85,7 +85,8 @@ class InputTextState extends State<InputText> {
             ? CupertinoButton(
                 minSize: 25,
                 padding: EdgeInsets.all(10),
-                child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                child: Icon(
+                    _obscureText ? Icons.visibility : Icons.visibility_off),
                 onPressed: _onVisibleChanged,
               )
             : Icon(
