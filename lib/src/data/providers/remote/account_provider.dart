@@ -18,7 +18,7 @@ class AccountProvider {
       email: "test@test.com",
       name: "Test",
       lastname: "Meedu",
-      birthday: DateTime(1993, 12, 1),
+      birthday: DateTime(1982, 9, 1),
     );
   }
 }

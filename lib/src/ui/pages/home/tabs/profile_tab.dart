@@ -97,7 +97,7 @@ class ProfileTab extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  user.birthday.toString(),
+                  user.birthday.format,
                 ),
               )
             ],
